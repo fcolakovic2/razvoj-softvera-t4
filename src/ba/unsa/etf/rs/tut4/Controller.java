@@ -18,6 +18,8 @@ public class Controller {
       izbaciDuplikate(unesenitekst);
       String unesenitekst2 = String.join("\n", unesenitekst);
       ispis.setText(unesenitekst2);
+      ispis.setDisable(true);
+
 
 
 
