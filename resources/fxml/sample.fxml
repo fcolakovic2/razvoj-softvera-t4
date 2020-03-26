@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.tut4.Controller">
    <tabs>
       <Tab text="Artikli">
          <content>
@@ -19,13 +19,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Dodaj artikle" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#dodajArtikle" text="Dodaj artikle" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
                   </Button>
-                  <TextArea prefHeight="154.0" prefWidth="300.0" />
-                  <TextArea prefHeight="121.0" prefWidth="300.0" GridPane.rowIndex="1">
+                  <TextArea fx:id="unos" prefHeight="154.0" prefWidth="300.0">
+                     <GridPane.margin>
+                        <Insets top="15.0" />
+                     </GridPane.margin></TextArea>
+                  <TextArea fx:id="ispis" prefHeight="121.0" prefWidth="300.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets top="25.0" />
                      </GridPane.margin>

@@ -18,7 +18,7 @@ public class Artikal {
 
     }
 
-    public static ArrayList<Artikal> izbaciDuplikate(ArrayList<Artikal> artikli){
+    public static ArrayList<String> izbaciDuplikate(ArrayList<String> artikli){
      for (int i=0; i<artikli.size();i++){
          for (int j=i+1; j<artikli.size();j++){
              if (artikli.get(i).equals(artikli.get(j)))
