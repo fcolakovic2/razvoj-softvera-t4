@@ -8,9 +8,9 @@ public class Artikal {
 
     public Artikal(String artikal) {
         String[] info= artikal.split(",");
-        sifra = info [0];
-        naziv = info [1];
-        cijena= Double.parseDouble(info [2]);
+        setSifra(info [0]);
+        setNaziv(info [1]);
+        setCijena(Double.parseDouble(info [2]));
     }
 
     public String getSifra() {
@@ -18,6 +18,9 @@ public class Artikal {
     }
 
     public void setSifra(String sifra) {
+        if(sifra.isEmpty()) {
+            throw new IllegalArgumentException("Šifra je prazna");
+        }
         this.sifra = sifra;
     }
 
@@ -26,6 +29,9 @@ public class Artikal {
     }
 
     public void setNaziv(String naziv) {
+        if(naziv.isEmpty()) {
+            throw new IllegalArgumentException("Naziv je prazan");
+        }
         this.naziv = naziv;
     }
 
@@ -34,6 +40,9 @@ public class Artikal {
     }
 
     public void setCijena(double cijena) {
+        if(cijena<0) {
+            throw new IllegalArgumentException("Cijena je negativna");
+        }
         this.cijena = cijena;
     }
 
