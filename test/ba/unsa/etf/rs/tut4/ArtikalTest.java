@@ -141,5 +141,4 @@ class ArtikalTest {
         assertFalse(lista.contains(new Artikal("DEF", "Usluga", 100)));
     }
 }
-
 */
