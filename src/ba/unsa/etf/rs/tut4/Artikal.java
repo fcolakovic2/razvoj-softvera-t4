@@ -10,7 +10,7 @@ public class Artikal {
         String[] info= artikal.split(",");
         sifra = info [0];
         naziv = info [1];
-        cijena= info [2];
+        cijena= Double.parseDouble(info [2]);
     }
 
     public String getSifra() {
