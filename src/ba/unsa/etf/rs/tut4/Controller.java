@@ -34,7 +34,7 @@ public class Controller implements Initializable {
         for (String i : unesenitekst) {
             abc.add(new Artikal(i));
         }
-
+        artikli.clear();
         artikli.addAll(abc);
       Artikal.izbaciDuplikate(abc);
       String rezultat="";
