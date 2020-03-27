@@ -37,9 +37,10 @@ public class Controller implements Initializable {
         }
 
         artikli.clear();
-        artikli.addAll(abc);
+
 
       Artikal.izbaciDuplikate(abc);
+        artikli.addAll(abc);
       String rezultat="";
       for (Artikal i : abc){
           rezultat=rezultat+i+"\n";
