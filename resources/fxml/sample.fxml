@@ -76,7 +76,7 @@
                         <Insets left="65.0" top="-100.0" />
                      </GridPane.margin>
                   </Spinner>
-                  <TextArea fx:id="racun" prefHeight="227.0" prefWidth="202.0" GridPane.rowIndex="2">
+                  <TextArea fx:id="ispisitajracun" prefHeight="227.0" prefWidth="202.0" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="100.0" top="-65.0" />
                      </GridPane.margin>

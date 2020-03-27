@@ -8,6 +8,10 @@ public class Artikal {
     private String naziv;
     private double cijena;
 
+    public Artikal() {
+
+    }
+
 
     @Override
     public boolean equals(Object o){

@@ -24,8 +24,9 @@ public class Controller implements Initializable {
     public ChoiceBox<Artikal> choiceBox;
     public Spinner<Integer> kol;
     public TextArea racun;
-    private ArrayList<Artikal>abc = new ArrayList<>();
-    private ObservableList<Artikal> artikli = FXCollections.observableArrayList();
+    public TextArea ispisitajracun;
+    private static ArrayList<Artikal>abc = new ArrayList<>();
+    private static ObservableList<Artikal> artikli = FXCollections.observableArrayList();
 
 
 
@@ -34,8 +35,10 @@ public class Controller implements Initializable {
         for (String i : unesenitekst) {
             abc.add(new Artikal(i));
         }
+
         artikli.clear();
         artikli.addAll(abc);
+
       Artikal.izbaciDuplikate(abc);
       String rezultat="";
       for (Artikal i : abc){
@@ -54,9 +57,30 @@ public class Controller implements Initializable {
         this.kol.setValueFactory(quantityValueFactory);
     }
 
+
     public void dodaj(ActionEvent actionEvent) {
-        choiceBox.getSelectionModel().getSelectedItem();
+       int brojproizvoda = kol.getValue();   //uzimam broj proizvioda preko kolicine zadane u spinneru
+       String artikal = String.valueOf(choiceBox.getValue());
+       Artikal rezultat = new Artikal();
+       for (int i=0; i<abc.size();i++){    //prolazim kroz observListu i ako je artikal iz choiceboxa jednak nekom od ovih iz liste, taj iz liste ce bit rezultujuci
+           if (artikal.equals(abc.get(i).getSifra())){
+               rezultat=abc.get(i);
+           }
+       }
+        double zaplatiti=0;
+        zaplatiti = zaplatiti + rezultat.getCijena() * brojproizvoda;  //racunanje ukupnog placanja, cijena puta broj proizvoda
+       ArrayList<String> ispisracuna = new ArrayList<>();
+       ispisracuna.add(String.format("%5s%5d%.3f", artikal, brojproizvoda, rezultat.getCijena()));  //formatiran ispis utem metode String.format , mislim da je moglo i printf-om
+       StringBuilder ispisracunabuilder = new StringBuilder();
+       for (int i=0; i<ispisracuna.size();i++){   //prolaz kroz niz stringova , za svaki string dodaje novi red i odgovarajuci artikal kolicinu i cijenu
+           ispisracunabuilder.append(ispisracuna.get(i));
+           ispisracunabuilder.append("\n");
+       }
+       ispisracunabuilder.append(String.format("UKUPNO%17.2f", zaplatiti)); //dodavanje ukupne cijene za platiti
+       ispisitajracun.setText(ispisracunabuilder.toString()); //pristup textarea i postavljanje teksta na konacni ispis svega
+
 
 
     }
+
 }
