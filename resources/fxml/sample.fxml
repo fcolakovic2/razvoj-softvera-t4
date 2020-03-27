@@ -61,7 +61,7 @@
                         <Insets top="-110.0" />
                      </GridPane.margin>
                   </Label>
-                  <Button mnemonicParsing="false" text="Dodaj" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#dodaj" text="Dodaj" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="65.0" top="-35.0" />
                      </GridPane.margin>
@@ -71,12 +71,12 @@
                         <Insets left="65.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Spinner GridPane.rowIndex="1">
+                  <Spinner fx:id="kol" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="65.0" top="-100.0" />
                      </GridPane.margin>
                   </Spinner>
-                  <TextArea prefHeight="227.0" prefWidth="202.0" GridPane.rowIndex="2">
+                  <TextArea fx:id="racun" prefHeight="227.0" prefWidth="202.0" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="100.0" top="-65.0" />
                      </GridPane.margin>

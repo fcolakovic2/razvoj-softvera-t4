@@ -8,6 +8,7 @@ public class Artikal {
     private String naziv;
     private double cijena;
 
+
     @Override
     public boolean equals(Object o){
         Artikal artikal = (Artikal) o;
@@ -18,7 +19,7 @@ public class Artikal {
 
     }
 
-    public static ArrayList<String> izbaciDuplikate(ArrayList<String> artikli){
+    public static ArrayList<Artikal> izbaciDuplikate(ArrayList<Artikal> artikli){
      for (int i=0; i<artikli.size();i++){
          for (int j=i+1; j<artikli.size();j++){
              if (artikli.get(i).equals(artikli.get(j))) {
