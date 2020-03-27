@@ -59,9 +59,9 @@ public class Controller implements Initializable {
 
 
     public void dodaj(ActionEvent actionEvent) {
-       int brojproizvoda = kol.getValue();   //uzimam broj proizvioda preko kolicine zadane u spinneru
        String artikal = String.valueOf(choiceBox.getValue());
        Artikal rezultat = new Artikal();
+        int brojproizvoda = kol.getValue();   //uzimam broj proizvioda preko kolicine zadane u spinneru
        for (int i=0; i<abc.size();i++){    //prolazim kroz observListu i ako je artikal iz choiceboxa jednak nekom od ovih iz liste, taj iz liste ce bit rezultujuci
            if (artikal.equals(abc.get(i).getSifra())){
                rezultat=abc.get(i);
@@ -76,7 +76,7 @@ public class Controller implements Initializable {
            ispisracunabuilder.append(ispisracuna.get(i));
            ispisracunabuilder.append("\n");
        }
-       ispisracunabuilder.append(String.format("UKUPNO%17.2f", zaplatiti)); //dodavanje ukupne cijene za platiti
+       ispisracunabuilder.append(String.format("UKUPNO%20.2f", zaplatiti)); //dodavanje ukupne cijene za platiti
        ispisitajracun.setText(ispisracunabuilder.toString()); //pristup textarea i postavljanje teksta na konacni ispis svega
 
 
