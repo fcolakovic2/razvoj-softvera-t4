@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Racun {
 
-    private ArrayList<Artikal> r;
-    private ArrayList<Stavka> listastavki;
+    private ArrayList<Artikal> r = new ArrayList<Artikal> ();
+    private ArrayList<Stavka> listastavki = new ArrayList<Stavka>();
 
     public Racun() {
 
