@@ -9,9 +9,13 @@ public class Artikal {
     private double cijena;
 
     public Artikal() {
-
     }
 
+    public Artikal(String sifra, String naziv, double cijena) {
+        this.sifra = sifra;
+        this.naziv = naziv;
+        this.cijena = cijena;
+    }
 
     @Override
     public boolean equals(Object o){
