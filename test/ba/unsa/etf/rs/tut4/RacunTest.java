@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rs.tut4;
+package ba.unsa.etf.rs.tut4;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,4 +21,3 @@ class RacunTest {
     }
 }
 
-*/
