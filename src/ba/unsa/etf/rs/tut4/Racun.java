@@ -2,38 +2,35 @@ package ba.unsa.etf.rs.tut4;
 
 
 
+
 import java.util.ArrayList;
 
 public class Racun {
 
-    private ArrayList<Stavka> listastavki ;
+    private ArrayList<Artikal> r;
+    private ArrayList<Stavka> listastavki;
 
-
-    public Racun(ArrayList<Stavka> listastavki) {
-
-        this.listastavki = listastavki;
+    public ArrayList<Artikal> getR() {
+        return r;
     }
 
-    public ArrayList<Stavka> getListastavki() {
-
-        return listastavki;
+    public void setR(ArrayList<Artikal> r) {
+        this.r = r;
     }
 
-    public void setListastavki(ArrayList<Stavka> listastavki) {
-
-        this.listastavki = listastavki;
+    public Racun(ArrayList<Artikal> r) {
+        this.r = r;
     }
 
-    public void dodajStavku(int kolicina, Artikal artikal){
-
-        listastavki.add(new Stavka(kolicina, artikal));
+    public void dodajStavku(Artikal artikal, int kolicina){
+        r.add(new Stavka(artikal, kolicina));
+        listastavki.add(new Stavka(artikal, kolicina));
     }
-
 
     public double ukupanIznos(){
         double zaplatiti=0;
         for (Stavka s : listastavki){
-            zaplatiti+=s.kolicina*s.artikal.getCijena();
+            zaplatiti+=s.getKolicina()*s.getArti().getCijena();
         }
         return zaplatiti;
     }
