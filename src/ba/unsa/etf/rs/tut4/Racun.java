@@ -10,6 +10,10 @@ public class Racun {
     private ArrayList<Artikal> r;
     private ArrayList<Stavka> listastavki;
 
+    public Racun() {
+
+    }
+
     public ArrayList<Artikal> getR() {
         return r;
     }
@@ -18,8 +22,9 @@ public class Racun {
         this.r = r;
     }
 
-    public Racun(ArrayList<Artikal> r) {
+    public Racun(ArrayList<Artikal> r, ArrayList<Stavka> listastavki) {
         this.r = r;
+        this.listastavki = listastavki;
     }
 
     public void dodajStavku(Artikal artikal, int kolicina){
