@@ -15,7 +15,7 @@ class ArtikalTest {
     }
 
     @Test
-    void setSifra() {
+    void setSifra(String artikal) {
         Artikal a = new Artikal("ABC", "Proizvod", 100);
         a.setSifra("DEF");
         assertEquals("DEF", a.getSifra());
@@ -46,6 +46,8 @@ class ArtikalTest {
         a.setCijena(2020.2);
         assertEquals(2020.2, a.getCijena());
     }
+
+
 
     @Test
     void ctorCijenaIzuzetak() {
@@ -140,5 +142,14 @@ class ArtikalTest {
         assertFalse(lista.contains(new Artikal("ABC", "Usluga", 100)));
         assertFalse(lista.contains(new Artikal("DEF", "Usluga", 100)));
     }
+
+    @Test
+    void testJednakosti() {
+        Artikal a1 = new Artikal("ABC", "Proizvod", 100);
+        Artikal a2 = new Artikal("DEF", "PrOizvod", 300);
+        assertFalse(a1.equals(a2));
+        assertFalse(a2.equals(a1));
+    }
+
 }
 

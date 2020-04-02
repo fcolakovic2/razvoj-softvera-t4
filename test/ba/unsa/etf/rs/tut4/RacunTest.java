@@ -1,10 +1,14 @@
 package ba.unsa.etf.rs.tut4;
 
+
 import org.junit.jupiter.api.Test;
+
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacunTest {
+
 
     @Test
     void test1() {
@@ -19,5 +23,16 @@ class RacunTest {
         Racun r = new Racun();
         assertEquals(0, r.ukupanIznos());
     }
+
+
+    @Test
+    void test2() {
+        Racun r = new Racun();
+        r.dodajStavku(new Artikal("HLB", "Hljeb", 2.1), 2);
+        r.dodajStavku(new Artikal("JAJ", "Jaje", 0.25), 5);
+        assertEquals(5.45, r.ukupanIznos());
+    }
+
+
 }
 
