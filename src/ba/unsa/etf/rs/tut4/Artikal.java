@@ -12,9 +12,9 @@ public class Artikal {
     }
 
     public Artikal(String sifra, String naziv, double cijena) {
-        this.sifra = sifra;
-        this.naziv = naziv;
-        this.cijena = cijena;
+        setSifra(sifra);
+        setNaziv(naziv);
+        setCijena(cijena);
     }
 
     @Override
@@ -55,6 +55,7 @@ public class Artikal {
         if(sifra.isEmpty()) {
             throw new IllegalArgumentException("Šifra je prazna");
         }
+
         this.sifra = sifra;
     }
 
