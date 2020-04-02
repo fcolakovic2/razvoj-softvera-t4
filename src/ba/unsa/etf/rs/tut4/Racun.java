@@ -7,35 +7,35 @@ import java.util.ArrayList;
 
 public class Racun {
 
-    private ArrayList<Artikal> r = new ArrayList<Artikal> ();
-    private ArrayList<Stavka> listastavki = new ArrayList<Stavka>();
+    private ArrayList<Integer> kol = new ArrayList<> ();
+    private ArrayList<Artikal> listastavki= new ArrayList<>();
+
 
     public Racun() {
-
     }
 
-    public ArrayList<Artikal> getR() {
-        return r;
+    private  void setArtikal(Artikal artikal)  {
+        listastavki.add(artikal);
     }
 
-    public void setR(ArrayList<Artikal> r) {
-        this.r = r;
+    private void setKolicina(Integer kolicina) {
+        kol.add(kolicina);
     }
 
-    public Racun(ArrayList<Artikal> r, ArrayList<Stavka> listastavki) {
-        this.r = r;
+    public Racun(ArrayList<Integer> kol, ArrayList<Artikal> listastavki) {
+        this.kol = kol;
         this.listastavki = listastavki;
     }
 
     public void dodajStavku(Artikal artikal, int kolicina){
-        r.add(new Stavka(artikal, kolicina));
-        listastavki.add(new Stavka(artikal, kolicina));
+       setArtikal(artikal);
+       setKolicina(kolicina);
     }
 
     public double ukupanIznos(){
-        double zaplatiti=0;
-        for (Stavka s : listastavki){
-            zaplatiti+=s.getKolicina()*s.getArti().getCijena();
+        double zaplatiti = 0;
+        for (int i=0;i <listastavki.size();i++){
+            zaplatiti += kol.get(i) * listastavki.get(i).getCijena();
         }
         return zaplatiti;
     }

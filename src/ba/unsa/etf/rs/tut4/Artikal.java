@@ -19,6 +19,8 @@ public class Artikal {
 
     @Override
     public boolean equals(Object o){
+        if (!(o instanceof Artikal)) return false;
+
         Artikal artikal = (Artikal) o;
 
         if (Double.compare(artikal.getCijena(), this.cijena)==0 && artikal.sifra.equals(this.sifra) && artikal.naziv.equals(this.naziv))
