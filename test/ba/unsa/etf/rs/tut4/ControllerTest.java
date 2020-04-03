@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,5 +41,66 @@ class ControllerTest {
         Spinner spiner = robot.lookup("#kol").queryAs(Spinner.class);
         assertNotNull(spiner);
     }
+
+    @Test
+    void Test3(FxRobot robot){
+        TextArea area1 = robot.lookup("#unos").queryAs(TextArea.class);
+        TextArea area2 = robot.lookup("#ispis").queryAs(TextArea.class);
+        Button dugme = robot.lookup("#dugme").queryAs(Button.class);
+        robot.clickOn("#unos");
+        robot.write("ABC,Proizvod,100\n");
+        robot.write("ABC,Proizvod,100\n");
+        robot.clickOn(dugme);
+        assertEquals("ABC,Proizvod,100.0\n", area2.getText());
+    }
+
+    @Test
+    void Test4(FxRobot robot){
+        TextArea area1 = robot.lookup("#unos").queryAs(TextArea.class);
+        TextArea area2 = robot.lookup("#ispis").queryAs(TextArea.class);
+        Button dugme = robot.lookup("#dugme").queryAs(Button.class);
+        robot.clickOn("#unos");
+        robot.write("ABC,Proizvod,100\n");
+        robot.write("ABC,Proizvod,200\n");
+        robot.clickOn(dugme);
+        assertEquals("ABC,Proizvod,100.0\nABC,Proizvod,200.0\n", area2.getText());
+    }
+
+    @Test
+    void Test5(FxRobot robot){
+        TextArea area1 = robot.lookup("#unos").queryAs(TextArea.class);
+        TextArea area2 = robot.lookup("#ispis").queryAs(TextArea.class);
+        TextArea area3 = robot.lookup("#ispisitajracun").queryAs(TextArea.class);
+        Button dugme = robot.lookup("#dugme").queryAs(Button.class);
+        robot.clickOn("#unos");
+        robot.write("ABC,Proizvod,100\n");
+        robot.write("ABC,Proizvod,200\n");
+        robot.clickOn(dugme);
+        assertEquals("ABC,Proizvod,100.0\nABC,Proizvod,200.0\n", area2.getText());
+        robot.clickOn("#Račun");
+        robot.clickOn("#choiceBox");
+        robot.press(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#kol");
+        robot.press(KeyCode.CONTROL).press(KeyCode.A).release(KeyCode.A).release(KeyCode.CONTROL);
+        robot.type(KeyCode.DIGIT8);
+        robot.clickOn("#dugme2");
+        assertEquals("ABC,Proizvod,100.0    00,000\nUKUPNO                0,00", area3.getText());
+
+    }
+
+
+    @Test
+    void Test6(FxRobot robot){
+        TextArea area1 = robot.lookup("#unos").queryAs(TextArea.class);
+        TextArea area2 = robot.lookup("#ispis").queryAs(TextArea.class);
+        TextArea area3 = robot.lookup("#ispisitajracun").queryAs(TextArea.class);
+        Button dugme = robot.lookup("#dugme").queryAs(Button.class);
+        robot.clickOn(area1);
+        robot.write("Test,Testni,10\nTest,Testnic,20");
+        robot.clickOn(dugme);
+        assertEquals("Test,Testni,10.0\nTest,Testnic,20.0\n", area2.getText());
+    }
+
 
 }
