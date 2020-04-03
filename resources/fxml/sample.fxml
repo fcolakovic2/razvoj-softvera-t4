@@ -37,7 +37,7 @@
             </GridPane>
          </content>
       </Tab>
-       <Tab text="Račun">
+       <Tab fx:id="Račun" text="Račun">
            <content>
                <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="600.0">
                    <columnConstraints>
