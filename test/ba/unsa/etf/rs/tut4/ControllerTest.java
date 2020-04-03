@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
@@ -15,6 +16,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+
+import java.lang.reflect.InvocationTargetException;
 
 
 @ExtendWith(ApplicationExtension.class)
@@ -102,5 +105,14 @@ class ControllerTest {
         assertEquals("Test,Testni,10.0\nTest,Testnic,20.0\n", area2.getText());
     }
 
+    @Test
+    void Test7(FxRobot robot){
+        robot.clickOn("#Račun");
+        ChoiceBox cojs = robot.lookup("#choiceBox").queryAs(ChoiceBox.class);
+        Spinner spiner = robot.lookup("#kol").queryAs(Spinner.class);
+        assertNotNull(spiner);
+        assertNotNull(cojs);
+
+    }
 
 }
