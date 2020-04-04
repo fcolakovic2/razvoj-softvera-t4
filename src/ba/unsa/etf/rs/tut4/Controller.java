@@ -58,6 +58,7 @@ public class Controller implements Initializable {
         this.kol.setValueFactory(quantityValueFactory);
     }
 
+    ArrayList<String> ispisracuna = new ArrayList<>();
 
     public void dodaj(ActionEvent actionEvent) {
        String artikal = String.valueOf(choiceBox.getValue());
@@ -73,7 +74,6 @@ public class Controller implements Initializable {
 
         double zaplatiti=0;
         zaplatiti = zaplatiti+racun.ukupanIznos();  //racunanje ukupnog placanja, cijena puta broj proizvoda
-       ArrayList<String> ispisracuna = new ArrayList<>();
        ispisracuna.add(String.format("%5s%5d%.3f", artikal, brojproizvoda, rezultat.getCijena()));  //formatiran ispis utem metode String.format , mislim da je moglo i printf-om
        StringBuilder ispisracunabuilder = new StringBuilder();
        for (int i=0; i<ispisracuna.size();i++){   //prolaz kroz niz stringova , za svaki string dodaje novi red i odgovarajuci artikal kolicinu i cijenu
