@@ -62,14 +62,17 @@ public class Controller implements Initializable {
     public void dodaj(ActionEvent actionEvent) {
        String artikal = String.valueOf(choiceBox.getValue());
        Artikal rezultat = new Artikal();
-        int brojproizvoda = kol.getValue();   //uzimam broj proizvioda preko kolicine zadane u spinneru
+       Racun racun=new Racun();
+        int brojproizvoda = kol.getValue();//uzimam broj proizvioda preko kolicine zadane u spinneru
        for (int i=0; i<abc.size();i++){    //prolazim kroz observListu i ako je artikal iz choiceboxa jednak nekom od ovih iz liste, taj iz liste ce bit rezultujuci
            if (artikal.equals(abc.get(i).getSifra())){
+               racun.dodajStavku(abc.get(i), brojproizvoda);
                rezultat=abc.get(i);
            }
        }
+
         double zaplatiti=0;
-        zaplatiti = zaplatiti + rezultat.getCijena() * brojproizvoda;  //racunanje ukupnog placanja, cijena puta broj proizvoda
+        zaplatiti = zaplatiti+racun.ukupanIznos();  //racunanje ukupnog placanja, cijena puta broj proizvoda
        ArrayList<String> ispisracuna = new ArrayList<>();
        ispisracuna.add(String.format("%5s%5d%.3f", artikal, brojproizvoda, rezultat.getCijena()));  //formatiran ispis utem metode String.format , mislim da je moglo i printf-om
        StringBuilder ispisracunabuilder = new StringBuilder();

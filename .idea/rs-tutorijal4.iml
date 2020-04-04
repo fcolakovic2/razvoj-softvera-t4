@@ -25,7 +25,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="org.testfx:testfx-junit5:4.0.15-alpha" level="project" />
+    <orderEntry type="library" name="lib" level="application" />
   </component>
 </module>
